@@ -5,7 +5,11 @@
         "vscode": {
             "settings": {
                 "terminal.integrated.shell.linux": "/bin/bash"
-            }
+            },
+            "extensions": [
+                "GitHub.copilot",
+                "redhat.vscode-yaml"
+            ]
         }
     },
     "runArgs": [ "-v", "/var/run/docker.sock:/var/run/docker.sock" ],
