@@ -1,0 +1,44 @@
+
+-
+    prompt: HERE=
+    tags: [bash]
+    filetypes: [sh]
+    output: HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}" )" &> /dev/null && pwd )
+-
+    prompt: function parse_args
+    tags: [bash]
+    filetypes: [sh]
+    output: >
+    VERBOSE=0
+    DEBUG=0
+    function print_help {
+        echo "Usage: $0 [options]"
+        echo "Options:"
+        echo "  -h, --help    Print this help message"
+        echo "  -v, --verbose Enable verbose mode"
+        echo "  -g, --debug   Enable debug mode"
+    }
+
+    function parse_args {
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                -h|--help)
+                    print_help
+                    exit 0
+                    ;;
+                -v|--verbose)
+                    VERBOSE=true
+                    shift
+                    ;;
+                -g|--debug)
+                    DEBUG=true
+                    shift
+                    ;;
+                *)
+                    echo "Unknown option: $1"
+                    usage
+                    exit 1
+                    ;;
+            esac
+        done
+    }
