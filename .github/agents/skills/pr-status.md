@@ -6,7 +6,7 @@ Guidelines for fetching and reporting open PR status for tomthorogood across Git
 
 Every PR status entry must follow this exact format:
 
-[#PR_NUMBER](link) - repo-name - #PR_NUMBER - branch-name - STATUS
+[#PR\_NUMBER](link) - repo-name - #PR\_NUMBER - branch-name - STATUS
 
 Present results as a markdown table:
 
@@ -17,7 +17,7 @@ The formats of each column should be restricted to:
 - **Title**: The first 80 characters of the PR title.
 - **Repo**: Formatted as `owner/repo`
 - **PR#**: Formatted as a link to the PR: `[#1234](https://github.com/owner/repo/pull/1234)`
-- **Branch**: A code snippet in backticks: `` `branch-name` ``
+- **Branch**: A code snippet in backticks: \`\` `branch-name` \`\`
 - **CI**: Exactly ONE of the following options per PR.
     - When all checks passing: 🌈
     - When any checks in progress: 🏃‍♂️
@@ -67,7 +67,7 @@ Deduplicate results by PR number+repository.
 
 For each PR, fetch check status via:
 
-```
+```javascript
 gh pr view PR_NUMBER -R REPO --json number,url,headRefName,statusCheckRollup
 ```
 
@@ -81,4 +81,10 @@ Always write the report to a workspace file (`files/pr-report.md`) and open it i
 
 ## Summary
 
-When the user asks for a summary (of their day, their work, their PRs, etc.), include a **Todos** section listing all todos from the session database, grouped by status (in_progress, pending, done, blocked). Use the `sql` tool to query them.
+When the user asks for a summary (of their day, their work, their PRs, etc.), include a **Todos** section listing all todos from the session database, grouped by status (in\_progress, pending, done, blocked). Use the `sql` tool to query them.
+
+## Daily Task List
+
+- Maintain a daily task list in `files/pr-report.md`, starting a new list each day.
+- Keep the daily list updated as the user reports progress — move completed items to a **Done** section; remove sections when they become empty.
+- Track ad-hoc completions (e.g. skill updates, instruction changes, issue filings) in the **Done** section even if there was no explicit TODO item, so the user has a complete history of the day's work.
