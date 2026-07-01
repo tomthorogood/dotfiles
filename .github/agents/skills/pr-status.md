@@ -71,6 +71,8 @@ For each PR, fetch check status via:
 gh pr view PR_NUMBER -R REPO --json number,url,headRefName,statusCheckRollup
 ```
 
+**Never infer or guess branch names from PR titles or descriptions.** Always use the `headRefName` value returned by the API.
+
 A PR is **failing** if any check has `state` or `conclusion` equal to: `FAILURE`, `ERROR`, `failure`, `cancelled`, `timed_out`.
 
 If there are no known required checks for a given repository, treat all checks as required.
