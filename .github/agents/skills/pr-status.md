@@ -34,20 +34,6 @@ The formats of each column should be restricted to:
     - When it cannot be merged into its base branch due to a merge conflict: 🥊
 
 
-## Repos to Check
-
-Always check these repos unless the user specifies otherwise:
-
-- `github/github`
-- `github/backup-utils-private`
-- `github/enterprise2`
-- `github/elasticsearch`
-- `github/datadog-monitoring`
-- `github/vulcan-go`
-- `github/vulcan-daemon`
-- `github/puppet`
-- `github/terraform-github-search`
-- Any repo associated with any sessions visible to the current agentic surface.
 
 ## Finding PRs
 
