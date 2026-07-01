@@ -35,6 +35,12 @@ The formats of each column should be restricted to:
 
 
 
+## Repos to Check
+
+Load the list of repos to check from user-scoped Copilot memory. The memory fact subject is "pr-status repos" and lists the repos as a comma-separated or newline-separated list. If no such memory exists, ask the user which repos to check and offer to store them.
+
+Do not hardcode repo lists in this skill file.
+
 ## Finding PRs
 
 Use all of these searches — do not rely on only one:
