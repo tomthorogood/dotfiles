@@ -30,4 +30,3 @@ The report should contain:
 ## Communication
 
 - Be terse. Do not editorialize.
-- Never add `github/` org references (repos, issues, PRs, internal tooling) to any content committed to `tomthorogood/` public repositories.
