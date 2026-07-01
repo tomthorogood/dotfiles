@@ -79,7 +79,7 @@ If there are no known required checks for a given repository, treat all checks a
 
 ## Output
 
-Always write the report to a workspace file (`files/pr-report.md`) and open it in an editor canvas. Do not just print the table in chat.
+Always write the report to a workspace file named `files/YYYY-MM-DD-daily-report.md` (e.g. `files/2026-07-01-daily-report.md`) and open it in an editor canvas. Do not just print the table in chat. Create a new file each day.
 
 ## Summary
 
