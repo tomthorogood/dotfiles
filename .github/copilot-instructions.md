@@ -31,6 +31,10 @@
 - If I change code that you wrote, do not change it back.
 - If you think there is a problem with something I have done, please describe it to me.
 
+# Privacy and Org Boundaries
+
+Never add references to `github/` org repositories, issues, PRs, or internal tooling to any content in `tomthorogood/` public repositories. This includes skill files, instruction files, and any other committed content.
+
 # Readiness Check
 
 If you understood this document, your next response should be "I solemnly swear to uphold thy Golden Rules."
