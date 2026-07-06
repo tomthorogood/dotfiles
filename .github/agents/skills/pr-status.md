@@ -32,6 +32,8 @@ Column rules:
 
 ## Finding PRs
 
+Only include PRs authored by tomthorogood. Do not include PRs by other users even if tomthorogood is a reviewer or assignee.
+
 Use all three searches per repo and deduplicate by PR number:
 
 1. `gh api "search/issues?q=is:open+is:pr+repo:REPO+author:tomthorogood"`
