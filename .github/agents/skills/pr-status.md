@@ -32,7 +32,7 @@ Column rules:
 
 ## Finding PRs
 
-Only include PRs authored by tomthorogood. Do not include PRs by other users even if tomthorogood is a reviewer or assignee.
+Include PRs authored by tomthorogood. Also include PRs authored by Copilot bots (e.g. copilot, github-actions, app/copilot-swe-agent) where tomthorogood is assigned or a requested reviewer. Exclude PRs authored by other human users.
 
 Use all three searches per repo and deduplicate by PR number:
 
