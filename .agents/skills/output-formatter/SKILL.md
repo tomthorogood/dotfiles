@@ -1,3 +1,8 @@
+---
+name: output-formatter
+description: Formats agent responses to reduce user friction by removing trailing questions, upsells, editorial statements, and forbidden phrases.
+---
+
 # Output Formatter Skill
 
 BRIEF: Walks AI agents through a defined heuristic to format responses when invoked.

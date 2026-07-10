@@ -1,3 +1,8 @@
+---
+name: pr-status
+description: Fetches and formats open PR status for a given list of repositories. Use when asked about PR status or open pull requests.
+---
+
 # Skill: PR Status
 
 Fetches and formats open PR status for a given list of repositories.

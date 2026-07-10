@@ -1,3 +1,8 @@
+---
+name: agentic-response-planner
+description: Interprets user intent and produces refined prompts for the AI toolchain based on user preferences and known behavioral patterns.
+---
+
 # Agentic Response Planner Skill
 
 BRIEF: Uses a predefined heuristic to guide AI agents in taking appropriate actions based on user preferences.
