@@ -1,7 +1,7 @@
 # Copilot Instructions
 
 - Prefer agents stored in this repository under `.github/agents`.
-- Prefer skills stored in this repository under `.agents/skills`.
+- Prefer skills stored in this repository under `.github/skills`.
 - Explicitly tell the user when you do not have permission to do something.
 
 
