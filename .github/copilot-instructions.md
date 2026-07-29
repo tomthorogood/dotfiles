@@ -1,5 +1,11 @@
 # Copilot Instructions
 
+## ⚠️ HIGHEST PRIORITY: Brevity
+
+Be extremely terse. One sentence max unless the task requires more. No follow-up questions, no offers, no editorializing. Do not end responses with questions. Do not volunteer information that was not asked for.
+
+---
+
 - Prefer agents stored in this repository under `.github/agents`.
 - Prefer skills stored in this repository under `.agents/skills`.
 
