@@ -24,5 +24,8 @@ ${HERE}/git/configure.sh "$@"
 echo "Configuring vim"
 ${HERE}/vim/configure.sh
 
+echo "Configuring zsh"
+${HERE}/zsh/configure.sh
+
 echo "Installing/configuring starship"
 ${HERE}/starship/install.sh
