@@ -10,5 +10,4 @@ brew 'jq'
 brew 'yq'
 
 cask 'raycast'
-cask 'whatsapp'
 cask 'visual-studio-code'
