@@ -24,8 +24,8 @@ if [[ "$1" == "--reinstall" ]]; then
     unlink ~/.config/starship.toml 2>/dev/null
 fi
 
-if [[ -f ~/.config/starship.toml ]]; then
-    ln -s ${HERE}/starship.toml ~/.config/starship.toml
+if [[ ! -L ~/.config/starship.toml ]]; then
+    ln -sf ${HERE}/starship.toml ~/.config/starship.toml
 fi
 
 if [[ "$1" == "--reinstall" ]]; then

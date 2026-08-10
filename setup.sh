@@ -17,3 +17,12 @@ elif [[ "$(uname -a)" =~ "Darwin" ]]; then
     echo "Setting up macOS environment."
     ${HERE}/macos/setup.sh
 fi
+
+echo "Configuring git"
+${HERE}/git/configure.sh "$@"
+
+echo "Configuring vim"
+${HERE}/vim/configure.sh
+
+echo "Installing/configuring starship"
+${HERE}/starship/install.sh
