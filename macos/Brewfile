@@ -3,8 +3,12 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 
 brew 'starship'
+brew 'coreutils'
+brew 'gh'
+brew 'git'
+brew 'jq'
+brew 'yq'
 
 cask 'raycast'
 cask 'whatsapp'
 cask 'visual-studio-code'
-cask 'coreutils'

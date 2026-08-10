@@ -9,13 +9,7 @@ if ! command brew --help; then
 fi
 
 echo "Installing homebrew packages"
-brew install coreutils
-brew install gh
-brew install git
-brew install jq
-brew install visual-studio-code
-brew install yq
-brew install starship
+brew bundle --file="$HERE/Brewfile"
 
 PLIST_SRC="$HERE/launchd/com.tomthorogood.dotfiles-sync.plist"
 PLIST_DEST="$HOME/Library/LaunchAgents/com.tomthorogood.dotfiles-sync.plist"
