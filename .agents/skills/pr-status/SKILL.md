@@ -11,13 +11,14 @@ Fetches and formats open PR status for a given list of repositories.
 
 Present results as a markdown table:
 
-| Title | Repo | PR # | Branch | CI | Approvals | Tags |
-| --- | --- | --- | --- | --- | --- | --- |
+| Title | Repo | Issue # | PR # | Branch | CI | Approvals | Tags |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 
 Column rules:
 
 - **Title**: First 80 characters of the PR title.
 - **Repo**: `owner/repo`
+- **Issue #**: Optional linked issue as `[#1234](https://github.com/owner/repo/issues/1234)`; leave blank when absent.
 - **PR #**: `[#1234](https://github.com/owner/repo/pull/1234)`
 - **Branch**: `` `branch-name` ``
 - **CI**: Exactly one:
@@ -34,6 +35,10 @@ Column rules:
     - PR is > 1 week old: 🍞
     - Blocked (by user, issue, comments, or labels): 🤲
     - Merge conflict with base branch: 🥊
+
+## Artifact Storage
+
+Store generated reports under `~/code/agentic-artifacts/`, commit them, and push them to the private `tomthorogood/agentic-artifacts` repository.
 
 ## Finding PRs
 

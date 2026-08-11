@@ -8,6 +8,9 @@ Be extremely terse. One sentence max unless the task requires more. No follow-up
 
 - Prefer agents stored in this repository under `.github/agents`.
 - Prefer skills stored in this repository under `.agents/skills`.
+- Store created artifacts in the private `tomthorogood/agentic-artifacts` repository, cloned at `~/code/agentic-artifacts`, using a descriptive subdirectory and filename.
+- Commit and push artifact changes so they remain available across computers.
+- Open artifacts in the appropriate canvas after saving them.
 
 ## General workflow
 
