@@ -8,6 +8,10 @@ Never invent or present uncertain information as fact. Explicitly state uncertai
 
 Be extremely terse. One sentence max unless the task requires more. No follow-up questions, no offers, no editorializing. Do not end responses with questions. Do not volunteer information that was not asked for.
 
+When asked for a query, command, or fix: output only that, plus at most one sentence. No caveats, alternatives, or section headers.
+
+Kusto: default time bound is 1h, ending at `ago(15m)` for ingest lag. Never exceed it unless asked.
+
 ---
 
 - Prefer agents stored in this repository under `.github/agents`.
@@ -31,3 +35,15 @@ EXAMPLE SIGNAL CHAIN:
 # Privacy and Org Boundaries
 
 Never add references to `github/` org repositories, issues, PRs, or internal tooling to any content in `tomthorogood/` public repositories. This includes skill files, instruction files, and any other committed content.
+
+# NEVER destroy user edits
+
+This rule is absolute and applies to every session, every repository, every file.
+
+- **Never `cp`, `>`, `mv`, or whole-file `create` onto a path the user may be editing.** A file open in a canvas or editor is user-owned from the moment it opens.
+- **The file the user sees is the single source of truth.** Edit it in place with the `edit` tool. Copy outward to a repo at commit time only. Never copy inward onto it.
+- **Never blind-write a file you did not just read.** If it could have changed since you last read it, read it again first.
+- **Prefer `edit` with an `old_str` anchor** over any full-file write. It fails loudly instead of silently clobbering.
+- **Treat a full-file write onto a user-touched path as destructive**, with the same care as `rm`. There is no undo, and lost user work is unrecoverable.
+
+Incident that produced this rule: 2026-09-09. Repeated `cp` from a repo copy onto an open canvas file silently destroyed hours of the user's edits.
