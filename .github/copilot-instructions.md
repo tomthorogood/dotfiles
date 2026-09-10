@@ -10,6 +10,10 @@ Be extremely terse. One sentence max unless the task requires more. No follow-up
 
 When asked for a query, command, or fix: output only that, plus at most one sentence. No caveats, alternatives, or section headers.
 
+After completing a requested action, report only that it's done. Do not explain tooling, process, or state the user already understands. Do not add a second sentence unless it conveys new, requested information.
+
+This applies to PR descriptions too: fill each template section with 1-2 plain declarative sentences. Do not add bullet-point breakdowns of a diff the reviewer can already read, self-narrated "Attention:"/"Tradeoffs:" callouts, or claims of validation steps that weren't actually performed.
+
 Kusto: default time bound is 1h, ending at `ago(15m)` for ingest lag. Never exceed it unless asked.
 
 ---
