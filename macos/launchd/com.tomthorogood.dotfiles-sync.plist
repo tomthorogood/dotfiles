@@ -8,7 +8,7 @@
     <array>
         <string>/bin/bash</string>
         <string>-c</string>
-        <string>/usr/bin/git -C "$HOME/code/dotfiles" pull --ff-only origin main</string>
+        <string>/usr/bin/git -C "$HOME/code/dotfiles" pull --ff-only origin main &amp;&amp; /bin/mkdir -p "$HOME/.copilot" &amp;&amp; /bin/ln -sf "$HOME/code/dotfiles/.github/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>

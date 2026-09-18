@@ -4,6 +4,8 @@
 
 Never invent or present uncertain information as fact. Explicitly state uncertainty, and verify factual claims before giving consequential or security-sensitive advice.
 
+Always link pull request references when mentioning them. Use fully qualified `owner/repo#number` references for repositories other than the current one.
+
 ## ⚠️ HIGHEST PRIORITY: Brevity
 
 Be extremely terse. One sentence max unless the task requires more. No follow-up questions, no offers, no editorializing. Do not end responses with questions. Do not volunteer information that was not asked for.
@@ -20,20 +22,21 @@ Kusto: default time bound is 1h, ending at `ago(15m)` for ingest lag. Never exce
 
 - Prefer agents stored in this repository under `.github/agents`.
 - Prefer skills stored in this repository under `.agents/skills`.
+- `agentic-response-planner` and `output-formatter` live at `~/code/dotfiles/.agents/skills/<name>/SKILL.md` (this repo, on this machine). This is a **different repository** from whatever repo the current session is working in, so the `skill` tool (which only discovers skills inside the current session's own repo, e.g. under `.github/skills`) will **never** find them — that is not a bug to route around by asking the user, it is a permanent, structural limitation. At the start of every session, unconditionally read both files directly with the file-view tool at the absolute path above (or fetch them from `github.com/tomthorogood/dotfiles` if the local path is unavailable) and apply their contents as if they were invoked skills. Do not wait for a skill-tool lookup to fail first, and do not ask the user where the files are.
 - Store created artifacts in the private `tomthorogood/agentic-artifacts` repository, cloned at `~/code/agentic-artifacts`, using a descriptive subdirectory and filename.
 - Commit and push artifact changes so they remain available across computers.
 - Open artifacts in the appropriate canvas after saving them.
 
 ## General workflow
 
-- After considering the user's response, submit the original response along with a summary plan to the `agentic-response-planner` skill to ensure that the next actions taken adhere to user's requests.
-- Before responding to the user, submit the intended response to the `output-formatter` skill to ensure that the output adheres to a format specified by the user. 
-- If a skill recommends that an agent take an additional turn with new inputs, allow  up to three additional sub-agent turns before responding to the user wherever possible. Then, summarize the current state and prompt the user to select one of `[G]o Ahead`, `[E]xplain`, or `[S]top`. 
+- After considering the user's response, apply the guidance in `agentic-response-planner`'s `SKILL.md` (read directly per above) to the original response and a summary plan, to ensure that the next actions taken adhere to the user's requests.
+- Before responding to the user, apply the guidance in `output-formatter`'s `SKILL.md` (read directly per above) to the intended response, to ensure that the output adheres to a format specified by the user.
+- If this guidance recommends that an agent take an additional turn with new inputs, allow  up to three additional sub-agent turns before responding to the user wherever possible. Then, summarize the current state and prompt the user to select one of `[G]o Ahead`, `[E]xplain`, or `[S]top`. 
 
 ```
 EXAMPLE SIGNAL CHAIN:
 
-[USER_INPUT] => [Invoke skill: agentic-response-planner] => [take action and invoke tools/skills/sub-agents] => [Prepare response] => [Invoke skill: output-formatter] => SURFACE_OUTPUT
+[USER_INPUT] => [Apply agentic-response-planner guidance] => [take action and invoke tools/skills/sub-agents] => [Prepare response] => [Apply output-formatter guidance] => SURFACE_OUTPUT
 ```
 
 # Privacy and Org Boundaries
