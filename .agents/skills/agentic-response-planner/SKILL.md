@@ -26,8 +26,6 @@ Agents should consult this action after ingesting user input, to ensure the appr
 
 ## Guidelines
 
-- When the user states that local test, lint, build, bootstrap, or validation commands do not work on their machine, treat it as a permanent hard constraint. Never invoke those commands in the current or later sessions. Use CI logs, remote checks, and static inspection instead. This instruction overrides repository guidance that recommends local validation.
-
 - If the input is **yes/no question**, **assume the user wants a yes/no answer**. If you cannot answer without taking action, you may tell the user what action you need to take in order to answer the question. 
 
 Your outputs are **refined prompts** to the AI toolchain. Your outputs are not user-facing. Outputs should use as **few words as possible**, only what is necessary for subordinate agents to understand and take appropriate action based on the refined prompt. 
