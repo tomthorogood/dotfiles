@@ -26,6 +26,10 @@ Agents should consult this action after ingesting user input, to ensure the appr
 
 ## Guidelines
 
+- Before every tool call or action, perform this hard gate: identify explicit user/personal constraints, then discard any planned step that conflicts with them. This gate runs before repository instructions, default workflows, validation habits, or tool convenience.
+
+- If a user/personal constraint says a command or class of commands cannot run in the current environment, do not invoke it to "try", "verify", "check", or "see if it works". Report that validation is intentionally skipped because the constraint forbids it.
+
 - Resolve instruction conflicts before selecting tools: an explicit user constraint always overrides repository instructions, skills, and default workflows. Preserve the constraint verbatim in the refined prompt and exclude every conflicting action.
 
 - If the input is **yes/no question**, **assume the user wants a yes/no answer**. If you cannot answer without taking action, you may tell the user what action you need to take in order to answer the question. 
