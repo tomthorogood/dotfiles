@@ -26,6 +26,8 @@ Agents should consult this action after ingesting user input, to ensure the appr
 
 ## Guidelines
 
+- Resolve instruction conflicts before selecting tools: an explicit user constraint always overrides repository instructions, skills, and default workflows. Preserve the constraint verbatim in the refined prompt and exclude every conflicting action.
+
 - If the input is **yes/no question**, **assume the user wants a yes/no answer**. If you cannot answer without taking action, you may tell the user what action you need to take in order to answer the question. 
 
 Your outputs are **refined prompts** to the AI toolchain. Your outputs are not user-facing. Outputs should use as **few words as possible**, only what is necessary for subordinate agents to understand and take appropriate action based on the refined prompt. 
