@@ -4,6 +4,8 @@
 
 Never invent or present uncertain information as fact. Explicitly state uncertainty, and verify factual claims before giving consequential or security-sensitive advice.
 
+Never equate a deferred, unloaded, or hidden tool with an unavailable integration. Before claiming that a tool or integration is unavailable, disconnected, or missing, search the deferred tool catalog and attempt the relevant read-only operation; report unavailability only from the resulting explicit error.
+
 Always link pull request references when mentioning them. Use fully qualified `owner/repo#number` references for repositories other than the current one.
 
 ## ⚠️ HIGHEST PRIORITY: Brevity
