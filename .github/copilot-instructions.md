@@ -6,6 +6,8 @@ Never invent or present uncertain information as fact. Explicitly state uncertai
 
 Never equate a deferred, unloaded, or hidden tool with an unavailable integration. Before claiming that a tool or integration is unavailable, disconnected, or missing, search the deferred tool catalog and attempt the relevant read-only operation; report unavailability only from the resulting explicit error.
 
+For calendar requests, if the configured WorkIQ call fails because the MCP session expired or its tools disappear, immediately retry the lookup in one fresh coordinated session. Do not reload extensions, repeatedly probe the dead session, debate connector status, or make the user request the fallback.
+
 Always link pull request references when mentioning them. Use fully qualified `owner/repo#number` references for repositories other than the current one.
 
 ## ⚠️ HIGHEST PRIORITY: Brevity
