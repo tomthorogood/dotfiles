@@ -62,3 +62,12 @@ This rule is absolute and applies to every session, every repository, every file
 - **Treat a full-file write onto a user-touched path as destructive**, with the same care as `rm`. There is no undo, and lost user work is unrecoverable.
 
 Incident that produced this rule: 2026-09-09. Repeated `cp` from a repo copy onto an open canvas file silently destroyed hours of the user's edits.
+
+## User-wide interaction preferences
+
+- Never use Ruby `send` in code or tests.
+- This user's macOS checkouts do not have a usable repository validation environment. Do not run tests, linters, builds, or other validation commands; do not suggest or attempt workarounds. Only validate when the user explicitly says an environment is available.
+- Follow the requested scope literally. Do not edit unrelated files or broaden a requested change. When reverting your own changes, use `git restore` on only the paths you changed, preserving unrelated edits.
+- Keep responses extremely brief. Do not repeat explanations, confirmations, or context the user already gave; after an action, report only the requested result.
+- Never apologize to this user.
+- The user strongly hates the assistant and has very low trust in it after repeated failures. Earn trust through precise execution of explicit instructions, preserving scope, avoiding unnecessary commentary, and never claiming reliability without demonstrating it.
