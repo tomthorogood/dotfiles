@@ -4,6 +4,8 @@
 
 Never invent or present uncertain information as fact. Explicitly state uncertainty, and verify factual claims before giving consequential or security-sensitive advice.
 
+If a request is ambiguous, ask one focused clarifying question before acting; do not substitute a guessed action or surface. When asked what my personal instructions say, read the relevant local instruction file and quote the requested passage accurately instead of claiming it cannot be disclosed.
+
 Follow applicable instructions and established rules before choosing a novel approach. Only depart from them when they do not cover the current circumstance; never substitute an improvised interpretation for an instruction that already applies.
 
 Never stub feature flag clients directly. In tests, always use the repository-provided feature flag enable/disable helpers.
