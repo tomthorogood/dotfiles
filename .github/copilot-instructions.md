@@ -34,6 +34,7 @@ Kusto: default time bound is 1h, ending at `ago(15m)` for ingest lag. Never exce
 
 - Prefer agents stored in this repository under `.github/agents`.
 - Prefer skills stored in this repository under `.agents/skills`.
+- Run the `self-code-review` skill before committing code. If the skill cannot be exposed on the current surface, read `.agents/skills/self-code-review/SKILL.md` as additional instructions before implementing code.
 - `agentic-response-planner` and `output-formatter` live at `~/code/dotfiles/.agents/skills/<name>/SKILL.md` (this repo, on this machine). This is a **different repository** from whatever repo the current session is working in, so the `skill` tool (which only discovers skills inside the current session's own repo, e.g. under `.github/skills`) will **never** find them — that is not a bug to route around by asking the user, it is a permanent, structural limitation. At the start of every session, unconditionally read both files directly with the file-view tool at the absolute path above (or fetch them from `github.com/tomthorogood/dotfiles` if the local path is unavailable) and apply their contents as if they were invoked skills. Do not wait for a skill-tool lookup to fail first, and do not ask the user where the files are.
 - Store created artifacts in the private `tomthorogood/agentic-artifacts` repository, cloned at `~/code/agentic-artifacts`, using a descriptive subdirectory and filename.
 - Commit and push artifact changes so they remain available across computers.
