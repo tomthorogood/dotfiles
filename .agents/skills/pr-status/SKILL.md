@@ -11,8 +11,8 @@ Fetches and formats open PR status for a given list of repositories.
 
 Present results as a markdown table:
 
-| Title | Repo | Issue # | PR # | Branch | CI | Approvals | Tags |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Title | Repo | Issue # | PR # | Copilot Session | Branch | CI | Approvals | Tags |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 Column rules:
 
@@ -20,6 +20,7 @@ Column rules:
 - **Repo**: `owner/repo`
 - **Issue #**: Optional linked issue as `[#1234](https://github.com/owner/repo/issues/1234)`; leave blank when absent.
 - **PR #**: `[#1234](https://github.com/owner/repo/pull/1234)`
+- **Copilot Session**: Preserve an existing value for the same repository and issue or pull request. For an empty cell, use the optional link returned by the `relate-open-copilot-investigations` skill.
 - **Branch**: `` `branch-name` ``
 - **CI**: Exactly one:
     - All checks passing: 🌈
@@ -39,6 +40,15 @@ Column rules:
 ## Artifact Storage
 
 Store generated reports under `~/code/agentic-artifacts/`, commit them, and push them to the private `tomthorogood/agentic-artifacts` repository.
+
+## Relating Copilot Sessions
+
+Before replacing an existing status table:
+
+1. Preserve each **Copilot Session** value keyed by repository and issue or pull request.
+2. For each empty value, create a reference request containing the row's issue and pull-request links with the repository as context.
+3. Invoke the `relate-open-copilot-investigations` skill once with those reference requests and the current time. Do not invoke it when every row already has a value.
+4. Populate matched links and leave unmatched cells empty.
 
 ## Finding PRs
 
@@ -61,3 +71,5 @@ gh pr view PR_NUMBER -R REPO --json number,url,headRefName,statusCheckRollup,rev
 Never infer branch names from PR titles. Always use the `headRefName` value from the API.
 
 A PR is **failing** if any check has `state` or `conclusion` equal to: `FAILURE`, `ERROR`, `failure`, `cancelled`, `timed_out`.
+
+Classify CI from actual workflow checks. Non-CI pending checks must not make the CI column show 🏃‍♂️.
