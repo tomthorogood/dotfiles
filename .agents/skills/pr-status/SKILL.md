@@ -20,7 +20,7 @@ Column rules:
 - **Repo**: `owner/repo`
 - **Issue #**: Optional linked issue as `[#1234](https://github.com/owner/repo/issues/1234)`; leave blank when absent.
 - **PR #**: `[#1234](https://github.com/owner/repo/pull/1234)`
-- **Copilot Session**: Preserve an existing value for the same repository and issue or pull request. For an empty cell, invoke the `relate-open-copilot-investigations` skill and use its optional link.
+- **Copilot Session**: Preserve an existing value for the same repository and issue or pull request. For an empty cell, use the optional link returned by the `relate-open-copilot-investigations` skill.
 - **Branch**: `` `branch-name` ``
 - **CI**: Exactly one:
     - All checks passing: 🌈
@@ -46,8 +46,9 @@ Store generated reports under `~/code/agentic-artifacts/`, commit them, and push
 Before replacing an existing status table:
 
 1. Preserve each **Copilot Session** value keyed by repository and issue or pull request.
-2. Invoke the `relate-open-copilot-investigations` skill once with only the rows whose preserved value is empty.
-3. Populate matched links and leave unmatched cells empty.
+2. For each empty value, create a reference request containing the row's issue and pull-request links with the repository as context.
+3. Invoke the `relate-open-copilot-investigations` skill once with those reference requests and the current time. Do not invoke it when every row already has a value.
+4. Populate matched links and leave unmatched cells empty.
 
 ## Finding PRs
 

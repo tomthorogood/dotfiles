@@ -1,19 +1,17 @@
 ---
 name: relate-open-copilot-investigations
-description: Finds recently active open GitHub Copilot sessions that reference issues or pull requests in a status report.
+description: Finds recently active open GitHub Copilot sessions whose contents match supplied references.
 ---
 
 # Skill: Relate Open Copilot Investigations
 
-Find an optional open GitHub Copilot session for each status-report row whose **Copilot Session** cell is empty.
+Find an optional open GitHub Copilot session for each supplied reference request.
 
 ## Inputs
 
-- The report rows with empty **Copilot Session** cells.
-- Each row's repository and linked issue or pull request.
+- One or more reference requests, each containing the references to find.
+- Optional context for each request to disambiguate its references.
 - The current time.
-
-Do not search for a row that already has a **Copilot Session** value.
 
 ## Time Window
 
@@ -35,12 +33,12 @@ Time-bound every `session_store_sql` query and filter by the candidate session I
 
 ## Matching
 
-A session matches a row only when its references or conversation content identifies that row's issue or pull request in that repository. Accept a repository-qualified reference or a GitHub URL. Do not match a bare issue or pull-request number without repository identity because numbers can collide across repositories.
+A session matches a request only when its references or conversation content identifies a supplied reference, using the request's context when needed to disambiguate it. Do not accept ambiguous matches.
 
-When multiple sessions match, use the one with the most recent activity. Return:
+When multiple sessions match a request, use the one with the most recent activity. Return:
 
 ```markdown
 [copilot session](ghapp://sessions/SESSION_ID)
 ```
 
-Use the exact `app_url` returned by `list_sessions_and_chats`; do not construct the URL. Leave the cell empty when no session matches.
+Use the exact `app_url` returned by `list_sessions_and_chats`; do not construct the URL. Return no value for a request when no session matches.
