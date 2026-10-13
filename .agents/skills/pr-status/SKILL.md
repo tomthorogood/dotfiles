@@ -71,4 +71,4 @@ Never infer branch names from PR titles. Always use the `headRefName` value from
 
 A PR is **failing** if any check has `state` or `conclusion` equal to: `FAILURE`, `ERROR`, `failure`, `cancelled`, `timed_out`.
 
-Classify CI from actual workflow checks. Non-CI pending checks, including `fedramp-moderate/in-boundary-approval`, must not make the CI column show 🏃‍♂️.
+Classify CI from actual workflow checks. Non-CI pending checks must not make the CI column show 🏃‍♂️.
