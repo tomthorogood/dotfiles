@@ -35,7 +35,11 @@ The default rigidity is **Conservative**. The user will then review and let you 
 - Evaluate each rule for the given rigidity level; treat the guidance as a checklist
 - Evaluate ONLY the rules explicitly provided for the current rigidity levels
 - Review the entire proposed changeset against the merge base of the intended PR target, including committed and uncommitted changes. Reviewing only the latest edit is not sufficient.
-- Before reviewing, record the user's explicit requirements and exclusions. For every changed block, identify the requirement it implements or the concrete correctness dependency that makes it necessary. Remove unrequested additions; usefulness alone is not authorization.
+- Before reviewing, record the user's explicit requirements and exclusions. For every changed block, identify the explicit requirement it implements. Remove unrequested additions; usefulness alone is not authorization.
+- Only the user authorizes scope. An inferred correctness dependency does not authorize additional behavior; explain the concern and ask before implementing it.
+- Reject changes to scheduling, lifecycle, concurrency, metrics, or test performance unless explicitly requested.
+- Review test setup as strictly as production code: every stub, stored field, and fixture must be necessary to exercise the requested behavior—not merely convenient.
+- When correcting scope, remove the unauthorized implementation **and** its supporting tests, helpers, and documentation.
 - Read the existing implementation and relevant call sites before choosing an approach. Reuse the established argument passing, dispatch, helpers, and responsibility boundaries. Do not introduce special-case dispatch, subtype-specific restrictions in shared code, or extra responsibilities in existing methods when the requested behavior fits the existing pattern.
 - Record each applicable checklist item as pass, fixed, blocked, or not applicable, with concrete file/line evidence or a reason for non-applicability. Invoking or reading this skill, listing changed files, or asserting that review occurred is not evidence of compliance.
 - Fix in-scope violations before committing, then review the resulting full diff again. Do not claim completion or commit while an applicable item is unresolved. Report a genuine scope conflict instead of inventing additional behavior.
