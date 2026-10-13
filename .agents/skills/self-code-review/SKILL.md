@@ -55,6 +55,10 @@ This rigidity level is targeted at **minimizing lines of change** and **reducing
 
 #### General guidance
 
+- For every changed line, identify the explicit requirement it satisfies and why the existing code cannot satisfy it unchanged. Remove any line without both justifications.
+- Reuse existing execution paths before adding or extending another.
+- Review both forward and reverse user flows.
+- Do not commit until every remaining line passes this gate. "Beneficial," "safer," and "more consistent" are not sufficient reasons to retain a change.
 - Look for redundant or dangling artifacts and remove them where clearly safe.
   Before removing always check for references to the artifact; if publicly exposed within the code base, perform a general code search.
 - New code should not add exceptions to linting rules unless functionally critical. (Example: `# rubocop:disable Foo/Bar` smells really bad.)
