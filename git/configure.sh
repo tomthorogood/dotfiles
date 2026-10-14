@@ -18,8 +18,11 @@ function parse_args {
     done
 }
 
+parse_args "$@"
 
 git config --global user.name "Tom Thorogood"
-git config --global user.email "${email}"
+if [[ -n "${email}" ]]; then
+    git config --global user.email "${email}"
+fi
 
 git config --global alias.ninja 'commit --amend --no-edit'
