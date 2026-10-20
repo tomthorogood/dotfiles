@@ -4,11 +4,7 @@
 
 HERE=$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}" )" &> /dev/null && pwd )
 
-if [ -f "$HERE/.github/copilot-instructions.md" ]; then
-  mkdir -p "$HOME/.copilot"
-  ln -sf "$HERE/.github/copilot-instructions.md" "$HOME/.copilot/copilot-instructions.md"
-  echo "✓ Linked copilot-instructions.md → ~/.copilot/copilot-instructions.md"
-fi
+"$HERE/sync-copilot.sh"
 
 if [[ -n "${CODESPACE_VSCODE_FOLDER}" ]]; then
     echo "Setting up codespaces environment."
